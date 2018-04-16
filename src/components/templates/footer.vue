@@ -1,25 +1,32 @@
 <template>
-	<footer>
-		<div class="row">
-			<div class="section">
-				<ul>
-					<li>Home</li>
-					<li>About Us</li>
-					<li>Contact</li>
-				</ul>
-			</div>
-			
-			<div class="section">
-				<Subscribe msg="123"/>
-			</div>
+	<footer class="footer">
+	  <div class="container">
+	  	<div class="columns">
+		  <div class="column">
+		    First column
+		  </div>
+		  <div class="column">
+		    Second column
+		  </div>
+		  <div class="column">
+		    Third column
+		  </div>
+		  <div class="column">
+		    <Subscribe msg="Please to subscribe on newsletter"/>
+		  </div>
 		</div>
 
-		<div>Copyright. etc.</div>
+	    <div class="content has-text-centered">
+	      <p>
+	        <strong>Copyright</strong> etc. Bulma
+	      </p>
+	    </div>
+	  </div>
 	</footer>
 </template>
 
 <script>
-import Subscribe from '../../components/subscribe.vue'
+import Subscribe from '../../components/forms/subscribe.vue'
 
 export default {
   name: 'Footer',
@@ -31,33 +38,5 @@ export default {
 
 
 <style lang="scss" scoped>
-	footer {
-		padding: 5px;
-		margin: 0;
-		border-bottom: 10px solid #41B883;
 
-		.row {
-			display: flex;
-			justify-content: center;
-
-			.section {
-				border-right: 1px solid #cecece;
-				justify-content: space-evenly;
-				padding: 10px;
-				margin-bottom: 20px;
-			}
-		}
-	}
-
-	ul {
-		list-style: none;
-		display: flex;
-		justify-content: space-evenly;
-		flex-direction: column;
-
-		> li {
-			color: green;
-			margin: 15px 10px;
-		}
-	}
 </style>

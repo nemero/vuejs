@@ -8,6 +8,7 @@ import AboutUsPage from './components/pages/aboutus.vue'
 import HomePage from './components/pages/home.vue'
 import ContactUsPage from './components/pages/contactus.vue'
 
+const api_url = 'http://localhost'
 const router = new VueRouter({
  	routes: [
  		{ 

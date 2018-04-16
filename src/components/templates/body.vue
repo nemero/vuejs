@@ -12,9 +12,5 @@ export default {
 </script>
 
 <style scoped>
-	.content {
-	    min-height: 400px;
-	    max-width: 900px;
-	    margin: 0 auto;
-	}
+
 </style>
