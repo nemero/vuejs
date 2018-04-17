@@ -6,10 +6,10 @@
 		  <div class="modal-content">
 		  	<div class="box">
 			  	<h3 class="title is-4">{{ msg }}</h3>
-			    <form action="#/login" method="POST">
+			    <form action="#/login" method="POST" @submit.prevent="postForm">
 			    	<div class="field">
 			    		<p class="control has-icons-left">
-							<input type="text" name="email" class="input" placeholder="Your email" v-model.trim="email" @change="postForm()"/>
+							<input type="text" name="email" class="input" placeholder="Your email" v-model.trim="email"/>
 							<label>{{ email }}</label>
 							<span class="icon is-left">
 						      <i class="fas fa-envelope"></i>
@@ -32,7 +32,7 @@
 					</div>
 					<div class="field">
 						<p class="control">
-							<input type="submit" class="button is-primary is-outlined" name="Login" @click="postForm()"/>
+							<input type="submit" class="button is-primary is-outlined" name="Login" />
 						</p>
 					</div>
 				</form>
@@ -46,6 +46,7 @@
 
 <script>
 import {HTTP} from '../core/http-common'
+import Notification from '../provider/notification.vue'
 
 export default {
 	name: 'Login',
@@ -67,14 +68,17 @@ export default {
 
 	methods: {
 		postForm() {
-			console.log('123');
+			//console.log(this.email);
 			HTTP.post('login', {
-				body: this.email,
+				email: this.email,
+				password: this.password
 			})
 			.then(response => {
-				console.log(response)
+				//console.log(response)
+				console.log(Notification.showMessage(response));
 			})
 			.catch(e => {
+				console.log(Notification.showMessage(e));
 				this.errors.push(e)
 			})
 		}

@@ -1,5 +1,7 @@
 <template>
-  <div id="app" class="application">  
+  <div id="app" class="application">
+    <NotificationProvider />
+    
     <Header />
     <Body />
     <Footer />
@@ -11,12 +13,15 @@ import Header from './components/templates/header.vue'
 import Body from './components/templates/body.vue'
 import Footer from './components/templates/footer.vue'
 
+import NotificationProvider from './components/provider/notification.vue'
+
 export default {
   name: 'app',
   components: {
     Header,
     Body,
     Footer,
+    NotificationProvider
   }
 }
 </script>
