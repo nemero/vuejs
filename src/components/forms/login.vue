@@ -46,7 +46,7 @@
 
 <script>
 import {HTTP} from '../core/http-common'
-import Notification from '../provider/notification.vue'
+import { NotificationState } from '../core/notifications/notificationState'
 
 export default {
 	name: 'Login',
@@ -68,17 +68,24 @@ export default {
 
 	methods: {
 		postForm() {
-			//console.log(this.email);
+			var test = {
+				errors: {
+					email: ['error 1', 'error 2'],
+					password: ['error 1']
+				}
+			}
+			this.errors.push(test)
+
+			//NotificationState.addNotification(test);
 			HTTP.post('login', {
 				email: this.email,
 				password: this.password
 			})
 			.then(response => {
-				//console.log(response)
-				console.log(Notification.showMessage(response));
+				NotificationState.addNotification(response);
 			})
 			.catch(e => {
-				console.log(Notification.showMessage(e));
+				NotificationState.addNotification(e);
 				this.errors.push(e)
 			})
 		}

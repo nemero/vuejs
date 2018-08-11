@@ -1,26 +1,22 @@
 <template>
 	<div class="modal-notification">
-		<Notification v-model="messages" />
+		<Notification v-for="notification in notifications" :notification="notification"/>
 	</div>
 </template>
 
 <script>
 import Notification from '../core/notification.vue'
+import { NotificationState } from '../core/notifications/notificationState'
+
 
 export default {
 	name: 'NotificationProvider',
 	components: {
-		Notification,
+		Notification
 	},
 	data: () => ({
-		messages,
+		notifications: NotificationState.state,
 	}),
-	methods: {
-		showMessage(e) {
-			console.log('asdasd');
-			this.messages = e
-		}
-	}
 }
 </script>
 
@@ -32,7 +28,7 @@ export default {
 	width: 600px;
 	padding: 20px;
 	left: calc(50% - 300px);
-    z-index: 999999;
+    z-index: 9;
 
     article {
     	box-shadow: 0 0 10px lightgrey;
